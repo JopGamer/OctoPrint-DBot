@@ -19,3 +19,6 @@ OctoBot is a plugin allowing Octoprint to send notifications to a Discord channe
 3. Run "npm install".
 4. Open config.js and follow instructions in that file.
 5. Run "node ."
+
+## Update Checker
+This project has update checker that will make requests to my site for current version. If you don't want this feature feel free to disable that feature in the config!
