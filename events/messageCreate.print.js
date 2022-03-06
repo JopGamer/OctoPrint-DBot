@@ -1,5 +1,5 @@
 const discord = require('discord.js')
-const fetch = require('node-fetch')
+const fetch = import('node-fetch')
 const axios = require('axios')
 const config = require('../config')
 const FormData = require('form-data');
