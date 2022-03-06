@@ -11,7 +11,9 @@ module.exports = {
 
     discord: {
         token: "", //Put here Discord Bot token from https://discordapp.com/developers/applications.
-        channelId: "", //Put here channel where will bot operate.
+        clientId: "", //Put here id of Discord Bot.
+        channelId: "", //Put here id of channel where will bot operate.
+        guildId: "", //Put here id of server where will bot operate.
         userIds: [""] //Put here user ids that can interact with bot.
     },
 
