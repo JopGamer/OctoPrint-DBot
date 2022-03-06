@@ -1,5 +1,5 @@
 # Disclaimer
-This can't be installed directly via OctoPrint. You must install it via ssh or cmd! 
+This can't be installed directly via OctoPrint.
 
 # OctoPrint Discord Bot
 OctoBot is a plugin allowing Octoprint to send notifications to a Discord channel. This bot acts as a Discord bot, which allows it to listen on the channel and respond to commands to control the printer. There is a small amount of configuration needed on Discord to create the bot, but no programming is required.
