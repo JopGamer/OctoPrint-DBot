@@ -2,7 +2,7 @@ const discord = require('discord.js');
 const status = require('./job-info')
 const bed_info = require('./bed-info')
 const tool_info = require('./tool-info')
-const config = require('../2config')
+const config = require('../config')
 let last_status;
 
 module.exports = async (client) => {
