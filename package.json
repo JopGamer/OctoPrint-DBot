@@ -2,22 +2,17 @@
   "name": "octoprint-dbot",
   "version": "0.1.0",
   "description": "OctoPrint Discord Notifications and control",
-  "main": "index.js",
+  "main": "src/index.js",
+  "type": "module",
   "dependencies": {
-    "@discordjs/builders": "^0.12.0",
-    "@discordjs/rest": "^0.3.0",
-    "axios": "^0.26.0",
     "colors": "^1.4.0",
-    "delay": "^5.0.0",
-    "discord-api-types": "^0.27.3",
     "discord.js": "^13.6.0",
-    "form-data": "^4.0.0",
-    "node-fetch": "^3.2.1",
-    "quick.db": "^7.1.3",
-    "request-promise": "^4.2.6"
+    "gcommands": "^9.1.0-next.1646557221",
+    "undici": "^4.15.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/index.js"
   },
   "repository": {
     "type": "git",
@@ -28,5 +23,12 @@
   "bugs": {
     "url": "https://github.com/JopGamer/OctoPrint-DBot/issues"
   },
-  "homepage": "https://github.com/JopGamer/OctoPrint-DBot#readme"
+  "homepage": "https://github.com/JopGamer/OctoPrint-DBot#readme",
+  "devDependencies": {
+    "eslint": "^8.10.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-prettier": "^4.0.0",
+    "prettier": "^2.5.1"
+  }
 }
