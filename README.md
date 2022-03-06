@@ -13,7 +13,6 @@ OctoBot is a plugin allowing Octoprint to send notifications to a Discord channe
 ## Manual install
 1. Download/clone repo.
 2. Extract.
-3. Go into extracted folder.
-4. Run npm install.
-5. Open config.js and follow instructions in that file.
-6. Run "node ."
+3. Run "npm install".
+4. Open config.js and follow instructions in that file.
+5. Run "node ."
