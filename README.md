@@ -9,8 +9,8 @@ OctoBot is a plugin allowing Octoprint to send notifications to a Discord channe
 2. At least 128 MB of RAM free.
 3. And some time to setup this.
 
-## Installer (not done)
-1. [Download](some link) installer 
+## Installer (Work in progress)
+1. Download installer 
 2. And start it.
 
 ## Manual install
