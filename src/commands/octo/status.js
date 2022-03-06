@@ -29,7 +29,7 @@ new Command({
 
     let buff = await (await fetch(config.octoprint.camera)).arrayBuffer();
 
-    ctx.reply({
+    await ctx.reply({
       content: `${config.emojis.success} - Live view has been spawned!`,
       ephemeral: true,
     });
