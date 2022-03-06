@@ -15,10 +15,10 @@ export default {
   check_for_updates: true, // Set this to false if you dont want this app make requests to other sites!
 
   discord: {
-    token: 'OTUwMDM0OTQwNjU1OTg4Nzg2.YiTC_A.JN0BUTcp6PMcAvGygVFLCNPDvD4', // Put here Discord Bot token from https://discordapp.com/developers/applications.
-    channelId: '865544012491784206', // Put here id of channel where will bot operate.
-    guildId: '865544012491784202', // Put here id of server where will bot operate.
-    userIds: ['525316393768452098'], // Put here user ids that can interact with bot.
+    token: '', // Put here Discord Bot token from https://discordapp.com/developers/applications.
+    channelId: '', // Put here id of channel where will bot operate.
+    guildId: '', // Put here id of server where will bot operate.
+    userIds: [''], // Put here user ids that can interact with bot.
   },
 
   octoprint: {
