@@ -1,4 +1,3 @@
-'use strict';
 /* eslint-disable no-inline-comments */
 
 export default {

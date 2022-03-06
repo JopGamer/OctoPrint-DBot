@@ -1,5 +1,3 @@
-'use strict';
-
 import { fetch } from 'undici';
 import config from '../config.js';
 
@@ -11,5 +9,5 @@ export default async () => {
     },
   });
 
-  return await data.json();
+  return data.json();
 };

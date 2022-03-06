@@ -1,5 +1,4 @@
-'use strict';
-
+import { setInterval } from 'node:timers';
 import { MessageEmbed } from 'discord.js';
 import bedInfo from './bed_info.js';
 import jobInfo from './job_info.js';
@@ -8,12 +7,12 @@ import config from '../config.js';
 
 let last_status;
 
-export default async (client) => {
+export default client => {
   setInterval(async () => {
     const info = await jobInfo();
     const channel = client.channels.cache.find(ch => ch.id === config.discord.channelId);
 
-    if (!last_status) return last_status = info.state;
+    if (!last_status) return (last_status = info.state);
     if (last_status === info.state) return;
 
     if (last_status === 'Operational' && info.state === 'Printing') {
@@ -29,7 +28,7 @@ export default async (client) => {
         );
 
       const msg = await channel.send({
-        embeds: [ embed ],
+        embeds: [embed],
       });
 
       const inter = setInterval(async () => {
@@ -50,7 +49,7 @@ export default async (client) => {
             .setFooter({ text: 'Bed a Tool sú nahriaté' });
 
           msg.edit({
-            embeds: [ embed ],
+            embeds: [embed],
           });
         } else {
           const embed = new MessageEmbed()
@@ -62,17 +61,15 @@ export default async (client) => {
             );
 
           msg.edit({
-            embeds: [ embed ],
+            embeds: [embed],
           });
         }
       }, 2500);
     } else {
-      const embed = new MessageEmbed()
-        .setColor('BLUE')
-        .setDescription(`Status tlačiarne: **${info.state}**`);
+      const embed = new MessageEmbed().setColor('BLUE').setDescription(`Status tlačiarne: **${info.state}**`);
 
       channel.send({
-        embeds: [ embed ],
+        embeds: [embed],
       });
     }
 
