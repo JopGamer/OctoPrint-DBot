@@ -1,5 +1,5 @@
 const axios = require('axios')
-const config = require('../2config')
+const config = require('../config')
 
 module.exports = async () => {
     let data;
