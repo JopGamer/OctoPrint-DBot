@@ -9,6 +9,8 @@ module.exports = {
         loading: ':clock1:',
     },
 
+    check_for_updates: true, //Set this to false if you dont want this app make requests to other sites!
+
     discord: {
         token: "", //Put here Discord Bot token from https://discordapp.com/developers/applications.
         clientId: "", //Put here id of Discord Bot.
@@ -20,6 +22,6 @@ module.exports = {
     octoprint: {
         token: "", //OctoPrint Application Key.
         url: "http://your.url", //OctoPrint url. (Url thay you use to access OctoPrint)
-        camera: "http://your.url" //Url for screen shots.
+        camera: "http://ip-adresss-here/webcam/?action=snapshot" //Url for screen shots.
     }
 }
