@@ -1,4 +1,4 @@
-import { Command, CommandType } from 'gcommands';
+import { Command, CommandType, Inhibitor } from 'gcommands';
 import { MessageButton, MessageActionRow, MessageAttachment } from 'discord.js';
 import { fetch } from 'undici';
 import { setTimeout as delay } from 'node:timers/promises';
@@ -8,6 +8,14 @@ new Command({
     name: 'status',
     description: 'Pravidelne posiela obrázky z printer cam',
     type: [ CommandType.SLASH ],
+    inhibitors: [
+        new Inhibitor.ChannelOnly({
+            ids: [ config.discord.channelId ]
+        }),
+        new Inhibitor.UserOnly({
+            ids: config.discord.userIds
+        })
+    ],
     run: async(ctx) => {
         const button = new MessageButton()
             .setStyle('SECONDARY')
