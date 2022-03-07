@@ -6,10 +6,11 @@ module.exports = {
         queue: ':bar_chart:',
         music: ':musical_note:',
         success: ':white_check_mark:',
-        loading: ':clock1:',
+        loading: '<a:loading:875475541308891186>',
+        action: ' <:action:936924378371874826>'
     },
 
-    check_for_updates: true, //Set this to false if you dont want this app make requests to other sites!
+    check_for_updates: true,
 
     discord: {
         token: "", //Put here Discord Bot token from https://discordapp.com/developers/applications.
