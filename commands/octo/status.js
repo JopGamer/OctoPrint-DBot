@@ -9,8 +9,6 @@ module.exports = {
     category: 'OctoPrint',
 
     async execute(client, interaction) {
-        if (!config.discord.userIds.find(u => interaction.member.id) || interaction.channel.id !== config.discord.channelId) return;
-        
         const btn = new discord.MessageButton()
             .setStyle("SECONDARY")
             .setDisabled()
