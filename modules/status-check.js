@@ -12,6 +12,8 @@ module.exports = async (client) => {
 
         if (!last_status) return last_status = info.state;
         if (last_status == info.state) return;
+        if (client.disable_status_check) return;
+
         if (last_status == "Operational" && info.state == "Printing") {
             const bed = await bed_info()
             const tool = await tool_info()
