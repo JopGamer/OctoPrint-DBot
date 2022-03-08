@@ -2,7 +2,7 @@ const discord = require('discord.js')
 const axios = require('axios')
 const config = require('../config')
 const FormData = require('form-data');
-const request = require('request-promise');
+const psu_control = require('../modules/psu-control');
 
 module.exports = (client, message) => {
     if (!config.discord.userIds.find(u => message.author.id) || message.channel.id !== config.discord.channelId) return;
@@ -15,15 +15,7 @@ module.exports = (client, message) => {
                     info = [info[0], info[1], info[2]]
 
                     const upload = (type) => {
-                        request({
-                            method: "POST",
-                            url: `${config.octoprint.url}/api/plugin/psucontrol`,
-                            headers: {
-                                'X-Api-Key': config.octoprint.token,
-                            },
-                            body: { command: "getPSUState" },
-                            json: true
-                        }).then(async d => {
+                        psu_control("getPSUState", async d => {
                             let timeout = 0
                             if (d.isPSUOn == false) {
                                 timeout = 3000
@@ -108,16 +100,7 @@ module.exports = (client, message) => {
                                                     if (i.customId == "print") {
                                                         collector.stop()
 
-                                                        request({
-                                                            method: "POST",
-                                                            url: `${config.octoprint.url}/api/job`,
-                                                            headers: {
-                                                                'X-Api-Key': config.octoprint.token,
-                                                            },
-                                                            body: { command: "start" },
-                                                            json: true
-                                                        })
-                                                            .then(d => {
+                                                        psu_control("start", d => {
                                                                 const embed3 = new discord.MessageEmbed()
                                                                     .setColor("GREEN")
                                                                     .setDescription(`Printing of file **${message.attachments.first().name}** has been started!`)
