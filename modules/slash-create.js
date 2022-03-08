@@ -1,19 +1,44 @@
 const fs = require('fs')
+const axios = require('axios')
+const delay = require('delay')
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { REST } = require('@discordjs/rest');
 const { Routes } = require('discord-api-types/v9');
 const config = require('../config')
 
-module.exports = (client) => {
+module.exports = async (client) => {
     let testingcmds = []
+    let count = 0
 
-    fs.readdirSync('./commands').forEach(dirs => {
+    fs.readdirSync('./commands').forEach(async dirs => {
         const cmds = fs.readdirSync(`./commands/${dirs}`).filter(files => files.endsWith('.js'))
+        count = count + (30 * cmds.length)
 
         for (const file of cmds) {
             const command = require(`../commands/${dirs}/${file}`)
-            client.logger.cmds(`Loading command ${file}`)
-            client.commands.set(command.name.toLowerCase(), command)
+
+            let check;
+            if (command.check) {
+                axios({
+                    method: "GET",
+                    url: `${config.octoprint.url}/api/settings/templates`,
+                    headers: {
+                        'X-Api-Key': config.octoprint.token,
+                    },
+                    json: true
+                }).then(d => {
+                    if (!d.data.order.settings.find(s => s.plugin_id == command.check)) {
+                        client.logger.error(`Not loading command ${command.name}.js! Due to missing plugin.`)
+                        check = true
+                    }
+                })    
+            }
+
+            await delay(20)
+            if (!check) {
+                client.logger.cmds(`Loading command ${file}`)
+                client.commands.set(command.name.toLowerCase(), command)                
+            } 
 
             let desc = `Execute ${command.name} command`
             if (command.description) desc = command.description
@@ -160,9 +185,13 @@ module.exports = (client) => {
                 })
             }
 
-            testingcmds.push(slash)
+            if (!check) {
+                testingcmds.push(slash)
+            }
         };
     });
+
+    await delay(count);
 
     const rest = new REST({ version: '9' }).setToken(config.discord.token);
 
