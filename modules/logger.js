@@ -20,8 +20,12 @@ var radio = function (message) {
     console.log(colors.yellow('[RADIO]'), message);
 }
 
+var error = function (message) {
+    console.log(colors.red('[ERROR]'), message);
+}
 
 // Module exports
+module.exports.error = error;
 module.exports.success = success;
 module.exports.cmds = cmds;
 module.exports.info = info;
