@@ -11,8 +11,7 @@ module.exports = {
 
     async execute(client, interaction) {
         const action = interaction.options.getString("action")
-        interaction.deferReply()
-
+        await interaction.deferReply()
         client.disable_status_check = true
 
         if (action == "power on") {
