@@ -60,7 +60,7 @@ module.exports = {
         if (!info.job) info = {job: {estimatedPrintTime: 0}, progress: {printTime: 0}} 
         const attachment = new discord.MessageAttachment(buff, 'shot.jpg');
         const idk = await interaction.channel.send({
-            content: `Čas do konca: ${sectotime(info.job.estimatedPrintTime - info.progress.printTime)}`,
+            content: `Čas do konca: ${sectotime(info.job.estimatedPrintTime)}`,
             files: [attachment],
             components: [row1]
         })
